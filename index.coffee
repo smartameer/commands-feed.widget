@@ -51,6 +51,9 @@ style: """
     display: table-cell;
 
   .url
+    text-decoration: none;
+
+  .url:hover
     text-decoration: underline;
 
 """
@@ -68,7 +71,7 @@ render: () ->"""
       <span class="help">--help</span><span class="summary"></span>
     </p>
     <p class="desc">
-      <span class="ref">--ref</span><span class="url"></span>
+      <span class="ref">--ref</span><a class="url" href=""></a>
     </p>
     <p class="desc">
       <span class="votes">--votes</span><span class="votecount"></span>
@@ -82,5 +85,5 @@ update: (o, domEl) ->
   data = JSON.parse(o)[0];
   $(domEl).find('.command').html("#{data.command}");
   $(domEl).find('.summary').html("#{data.summary}");
-  $(domEl).find('.url').html("#{data.url}");
+  $(domEl).find('.url').html("#{data.url}").attr('href', "#{data.url}");
   $(domEl).find('.votecount').html("#{data.votes}");
