@@ -20,7 +20,7 @@ style: """
   color: #ccc;
 
   .container
-    padding: 8px 4px;
+    padding: 8px 4pxi 0 4px;
     background: rgba(#0, 0.85);
 
   .commandline
@@ -49,12 +49,23 @@ style: """
 
   .summary, .url, .votecount
     display: table-cell;
+    color: #ccc;
 
-  .url
+  .url, .refresh
     text-decoration: none;
 
-  .url:hover
+  .url:hover, .refresh:hover
     text-decoration: underline;
+
+  .refresh
+    font-size: 14px;
+    font-weight: 800;
+    padding-left: 8px;
+    color: #00f;
+    position: relative;
+    top: -20px;
+    cursor: pointer;
+    display: inline-block;
 
 """
 
@@ -76,7 +87,14 @@ render: () ->"""
     <p class="desc">
       <span class="votes">--votes</span><span class="votecount"></span>
     </p>
+    <span id="refresh" class="refresh">&#8634;</span>
   </div>
+
+"""
+
+afterRender: (domEl) ->"""
+
+  $(domEl).find('#refresh').on 'click', => @refresh()
 
 """
 
