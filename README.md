@@ -1,5 +1,4 @@
 ## Commandlinefu Random commands
----
 
 ### Screenshot
 ![Desktop Commands Feed](screenshot.png?raw=true)
